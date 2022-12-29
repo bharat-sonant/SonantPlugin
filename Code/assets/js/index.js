@@ -17,8 +17,11 @@ var options = {
 };
 
 //options.appid = "158847a4256b48c2a9c5489a3f059cb4";
-//options.token = "007eJxTYHDrmTvVMq/GouiAouOTpt9d5hdVb9f5TmkS4PvqbtzuwqfAYGhqYWFinmhiZGqWZGKRbJRomWxqYmGZaJxmYGqZnGTybXFKckMgI8Oad1yMjAwQCOJzMHgkFqXmpRQlMjAAAFOkH4Y=";
-//options.channel = "1667633892";
+//options.token = "007eJxTYIjZbfjjwpWnch4soSJHQzO3+P3/rZA090lksKqua4f0VF0FBkNTCwsT80QTI1OzJBOLZKNEy2RTEwvLROM0A1PL5CSTJ8tXJTcEMjLEzDdnYmSAQBCfmSGjOJmBAQDreR36";
+//options.channel = "hsc";
+//join();
+
+
 
 let request = new XMLHttpRequest();
 request.open("POST", "https://us-central1-dsiapp-103c4.cloudfunctions.net/getCurrentChannel");
@@ -26,6 +29,7 @@ request.send();
 request.onload = () => {
     if (request.status == 200) {
         var channelName = JSON.parse(request.response);
+        console.log(channelName);
         let tokenRequest = new XMLHttpRequest();
         tokenRequest.open("POST", "https://us-central1-dsiapp-103c4.cloudfunctions.net/getChannelToken", true);
         tokenRequest.setRequestHeader("Content-Type", "application/json");
@@ -35,6 +39,8 @@ request.onload = () => {
                 options.appid = json["appId"];
                 options.token = json["token"];
                 options.channel = channelName + "";
+                console.log("APP ID => " + options.appid);
+                console.log("Token => " + options.token);
                 join();
             }
         };
@@ -55,6 +61,13 @@ request.onload = () => {
 
 $("#leave").click(function(e) {
     leave();
+})
+
+$("#plusPoint").click(function(e) {
+    var element = $('#sonantWeb');
+    console.log(element)
+
+    $('#sonantWeb').show();
 })
 
 async function join() {
@@ -145,7 +158,7 @@ function sendSentance() {
         alert("sorry ! you are not connected !!!");
         return;
     }
-    let framedata = $('#txtSentance').val();
+    let framedata = document.getSelection().toString();
     let showSign = framedata.toUpperCase();
     let channelName = options.channel;
     let request = new XMLHttpRequest();
