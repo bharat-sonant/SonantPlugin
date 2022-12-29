@@ -62,10 +62,13 @@ $("#leave").click(function(e) {
 
 $("#plusPoint").click(function(e) {
     var element = $('#sonantWeb');
+    var innerHtml = '<div id="remote-playerlist" class="player-dimension"></div><div><p>Please select text and play from here </p><button type="button" onclick="sendSentance();">Play</button></div>';
     if (element.is(":visible")) {
+        $('#sonantWeb').html("");
         $('#sonantWeb').hide();
         leave();
     } else {
+        $('#sonantWeb').html(innerHtml);
         $('#sonantWeb').show();
         join();
     }
