@@ -1,25 +1,15 @@
 <div>
-    hi how are you<br/> my name is joy <br/>good morning
-    <div id="sonantWeb" style="width:300px; display: none; right:10px; bottom: 30px; position:fixed ; z-index: 999; height:400px; background-color: #fff;">
-        <div class="row video-group" style="margin-left: 0px!important;">
-            <div class="w-100"></div>
-            <div class="col">
-                <div id="remote-playerlist" style="width:200px!important; height:300px!important;"></div>
-            </div>
-        </div>
-        <div class="row video-group" style="margin-left: 0px!important;">
-            <div class="row" style="margin-left: 0px!important;">
-                <div class="col-sm">
-                    <p class="tips">Please select text and play from here </p>
-                    <button type="button" onclick="sendSentance();" class="btn btn-primary btn-sm">Play</button>
-                </div>
-            </div>
+    hi how are you<br /> my name is joy <br />good morning
+    <link href="./sonant/css/signey.css" rel="stylesheet">
+    <div id="sonantWeb" class="div-main">
+        <div id="remote-playerlist" class="player-dimension"></div>
+        <div>
+            <p>Please select text and play from here </p>
+            <button type="button" onclick="sendSentance();">Play</button>
         </div>
     </div>
-    <span id="plusPoint" style="right:10px; bottom: 10px; position:fixed ; z-index: 999; background-color: green; font-size: 30px;">+</span>
+    <span id="plusPoint" class="plus-icon">+</span>
 </div>
-
 <script src="./sonant/js/jquery-3.4.1.min.js"></script>
-<script src="./sonant/js/bootstrap.bundle.min.js"></script>
-<script src="./sonant/js/AgoraRTC_N-4.14.2.js"></script>
-<script src="./sonant/js/index.js"></script>
+<script src="./sonant/js/streaming.js"></script>
+<script src="./sonant/js/signey.js"></script>
