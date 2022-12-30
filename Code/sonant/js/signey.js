@@ -52,22 +52,14 @@ request.onload = () => {
 
 // do something with myJson
 
-
-
-
-
-$("#leave").click(function(e) {
-    leave();
-})
-
 $("#plusPoint").click(function(e) {
     var element = $('#sonantWeb');
-    var innerHtml = '<div id="remote-playerlist" class="player-dimension"></div><div><p>Please select text and play from here </p><button type="button" onclick="sendSentance();">Play</button></div>';
     if (element.is(":visible")) {
+        leave();
         $('#sonantWeb').html("");
         $('#sonantWeb').hide();
-        leave();
     } else {
+        var innerHtml = '<div id="remote-playerlist" class="player-dimension"></div><div><p>Please select text and play from here </p><button type="button" onclick="sendSentance();">Play</button></div>';
         $('#sonantWeb').html(innerHtml);
         $('#sonantWeb').show();
         join();
